@@ -11,6 +11,7 @@ class Program
         script.RenderScripture();        
 
         string input = Console.ReadLine();
+
         int notAllHidden = script.getWords().Count;        
 
         while (input != "quit" && notAllHidden > 0)

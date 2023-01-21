@@ -52,6 +52,7 @@ public class Scripture
 
     public void RenderScripture()
     {
+        Console.Clear();
         Console.Write($"{_reference} ");
         foreach (string item in getWords())
         {

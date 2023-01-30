@@ -4,16 +4,40 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-        /*Console.Write("Generating Preview in ");
-        for (int a = 10; a >= 0; a--)
-        {
-            //Console.CursorLeft = 22;
-            Console.Write("{0} ", a );    // Add space to make sure to override previous contents
-            System.Threading.Thread.Sleep(1000);
-        }*/
+        Breathing br = new Breathing();
+        Reflecting rf = new Reflecting();
+        Listing ls = new Listing();
 
-        Activity activity = new Activity();
-        activity.RunTimer();
-    }
+        bool running = true;
+        int choice = -1;
+
+        while (running)
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Options");
+            Console.WriteLine("\t1. Start breathing activity\n\t2. Start reflecting activity\n\t3. Start listing activity\n\t4. Quit");
+            Console.Write("Select a choice from menu: ");
+            choice = int.Parse(Console.ReadLine());
+            Console.Clear();
+
+            if (choice == 1)
+            {
+                br.Breath();
+            }
+            else if (choice == 2)
+            {
+                rf.Reflect();
+            }
+            else if (choice == 3)
+            {
+                ls.MakeList();
+            }
+            else if (choice == 4)
+            {
+                running = false;
+            }
+        }
+
+        Console.WriteLine("Goodbye!");
+    }      
 }

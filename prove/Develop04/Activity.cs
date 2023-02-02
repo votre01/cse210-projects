@@ -1,55 +1,78 @@
 
 public class Activity
 {
-    private string _activityName;
-    private string _activityDescription;
-    private int _activityLength;
+    protected string _activityName;
+    protected string _activityDescription;
+    protected int _activityLength;
+    protected DateTime _futureTime;
+    protected DateTime _currentTime;
     
 
     public Activity()
     {
         _activityName = "";
         _activityDescription = "";
-        _activityLength = 10;
+    }
+    
+    public void StartingMessage()
+    {
+        Console.WriteLine($"Welcome to the {_activityName} Activity\n");
+        Console.WriteLine($"{_activityDescription}");
+        Console.WriteLine();
     }
 
-    public string StartingMessage()
+    public void SetActivityLength()
     {
-        return $"Welcome to the {_activityName} Activity";
+        Console.Write("How long, in seconds, would you like for your session? ");
+        _activityLength = int.Parse(Console.ReadLine());
+        Console.Clear();
     }
 
-    public string EndingMessage()
+    public void EndingMessage()
     {
-        return $"You have complete another {_activityLength} of the {_activityName}";
+        Console.WriteLine();
+        Console.WriteLine("Welldone!");
+        Spinner(3);
+        Console.WriteLine($"You have complete another {_activityLength} seconds of the {_activityName} Activity");
+        Spinner(5);
     }
 
-    public void RunTimer()
+    public void SetTimer()
     {
-
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(30);
-
-        
-
-        DateTime currrentTime = DateTime.Now;
-        while (currrentTime < futureTime)
-        {
-            Console.WriteLine("Type something");
-            Console.ReadLine();
-            currrentTime = DateTime.Now;
-        }
-        
-        Console.WriteLine("Done!");
-
-        /*for (int s = _activityLength; s > 0; s-- )
-        {
-            Thread.Sleep(1000);
-            Console.Write(s);
-        }*/
+        _futureTime = startTime.AddSeconds(_activityLength);
     }
 
-    public void Spinner()
+    public void UpdateTimer()
     {
+        _currentTime = DateTime.Now;
+    }
 
+    public void Spinner(int spinTime)
+    {
+        Console.CursorVisible = false;
+        for (int counter = spinTime; counter > 0; counter--)
+        {
+            Console.Write("-");
+            Thread.Sleep(250);
+            Console.Write("\b \b"); 
+            Console.Write("\\");            
+            Thread.Sleep(250);
+            Console.Write("\b \b"); 
+            Console.Write("|");        
+            Thread.Sleep(250);
+            Console.Write("\b \b"); 
+            Console.Write("/");        
+            Thread.Sleep(250);
+            Console.Write("\b \b");
+        }
+        Console.Write("\b \b\n");
+    }
+
+    public void GetReady()
+    {
+        Console.WriteLine("Get ready...");
+        Spinner(4);
+        Console.WriteLine("\n");
     }
 }

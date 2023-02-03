@@ -1,0 +1,8 @@
+EternalGoal>Read>Read scritures 10 minutes
+ChecklistGoal>Eat>Eat sushi at Ocean Basket>3>0>500>False
+SimpleGoal>Jump>Jumping jacks 100>False
+SimpleGoal>Relay>On track>False
+SimpleGoal>Append>To file>False
+SimpleGoal>money>Get money>False
+SimpleGoal>yun>yumming>False
+SimpleGoal>escape>this country>False

@@ -13,18 +13,22 @@ public class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
-        AddPoints();
-        _performedCount++;        
+        _performedCount++;
+        AddPoints();                
+    }
+
+    public override void AddPoints()
+    {
+        base.AddPoints();
+        AddBonus();
     }
 
     public override bool IsComplete()
     {
         if (_performedCount >= _target)
-        {
-            return true;
-        }
+        _complete = true;
 
-        return false;
+        return _complete;
     }
 
     public override void SetGoal()
@@ -46,9 +50,24 @@ public class ChecklistGoal : Goal
         _bonus = int.Parse(Console.ReadLine());
     }
 
+    public void SetPerformedCountExternal(string performed)
+    {
+        _performedCount = int.Parse(performed);
+    }
+
+    public void SetTargetExternal(string target)
+    {
+        _target = int.Parse(target);
+    }
+
+    public void SetBonusExternal(string bonus)
+    {
+        _bonus = int.Parse(bonus);
+    }
+
     public void AddBonus()
     {
-        if (_performedCount >= _target)
+        if (_performedCount == _target)
         {
             _points += _bonus;
         }
@@ -69,11 +88,23 @@ public class ChecklistGoal : Goal
         return _performedCount;
     }
 
+    public override void GoalListing()
+    {
+        if(IsComplete())
+        {            
+            Console.WriteLine($"[X] {GetGoalName()} ({GetGoalDescription()}) -- Currently completed: {GetPerformedCount()}/{GetTarget()}");
+        }
+        else
+        {
+            Console.WriteLine($"[ ] {GetGoalName()} ({GetGoalDescription()}) -- Currently completed: {GetPerformedCount()}/{GetTarget()}");
+        }
+    }
+
     public override void SaveGoal(string filename)
     {
         using (StreamWriter outputFile = File.AppendText(filename))
         {            
-            outputFile.WriteLine($"ChecklistGoal>{GetGoalName()}>{GetGoalDescription()}>{GetTarget()}>{GetPerformedCount()}>{GetBonus()}>{IsComplete()}");
+            outputFile.WriteLine($"ChecklistGoal>{GetGoalName()}>{GetGoalDescription()}>{IsComplete()}>{GetAssociatedPoints()}>{GetPerformedCount()}>{GetTarget()}>{GetBonus()}");
         }
     }
 }

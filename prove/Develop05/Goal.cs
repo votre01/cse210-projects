@@ -4,6 +4,7 @@ public abstract class Goal
     private string _goalDescription;
     protected int _points;
     protected int _associatedPoints;
+    protected bool _complete;
 
     public Goal()
     {
@@ -11,13 +12,14 @@ public abstract class Goal
         _goalDescription = "";
         _points = 0;
         _associatedPoints = 0;
+        _complete = false;
     }
 
     public abstract void RecordEvent();
 
     public virtual bool IsComplete()
     {
-        return false;
+        return _complete;
     }
 
     public virtual void SetGoal()
@@ -27,9 +29,9 @@ public abstract class Goal
         SetAssociatedPoints();
     } 
 
-    public void AddPoints()
+    public virtual void AddPoints()
     {
-        _points += _associatedPoints;
+        _points = _associatedPoints;
     }
 
     public void SetGoalName()
@@ -60,6 +62,17 @@ public abstract class Goal
         _associatedPoints = int.Parse(Console.ReadLine());
     }
 
+    public void SetAssociatedPointsExternal(string associatedPoints)
+    {
+        _associatedPoints = int.Parse(associatedPoints);
+    }
+
+    public void SetCompleteExternal(string statusString)
+    {
+        if (statusString == "True")
+        _complete = true;
+    }
+
     public string GetGoalName()
     {
         return _goalName;
@@ -73,6 +86,23 @@ public abstract class Goal
     public int GetPoints()
     {
         return _points;
+    }
+
+    public int GetAssociatedPoints()
+    {
+        return _associatedPoints;
+    }
+
+    public virtual void GoalListing()
+    {
+        if(IsComplete())
+        {            
+            Console.WriteLine($"[X] {GetGoalName()} ({GetGoalDescription()})");
+        }
+        else
+        {
+            Console.WriteLine($"[ ] {GetGoalName()} ({GetGoalDescription()})");
+        }
     }
 
     public abstract void SaveGoal(string filename);    

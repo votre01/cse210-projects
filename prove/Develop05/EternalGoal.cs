@@ -16,7 +16,7 @@ public class EternalGoal : Goal
     {
         using (StreamWriter outputFile = File.AppendText(filename))
         {            
-            outputFile.WriteLine($"EternalGoal>{GetGoalName()}>{GetGoalDescription()}");
+            outputFile.WriteLine($"EternalGoal>{GetGoalName()}>{GetGoalDescription()}>{IsComplete()}>{GetAssociatedPoints()}");
         }
     }
 }

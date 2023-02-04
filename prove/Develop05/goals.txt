@@ -1,3 +1,0 @@
-SimpleGoal>Running>Run 2km track>True>50
-EternalGoal>Scripture>Study 10 verses a day>False>50
-ChecklistGoal>Temple>Attend temple this year>True>100>3>3>400

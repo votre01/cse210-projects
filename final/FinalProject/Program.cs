@@ -42,8 +42,7 @@ class Program
                     break;
                 case 7:
                     status = false;
-                    break;
-                
+                    break;                                    
             }
         }
     }

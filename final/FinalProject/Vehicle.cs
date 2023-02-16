@@ -5,15 +5,17 @@ public class Vehicle
     private string _registrationNumber;
     private string _vehicleCategory;
     private bool _availability;
+    private double _rate;
+
 
     public Vehicle()
     {
 
     }
 
-    public virtual double Billing(double rate, int duration)
+    public virtual double Billing(int duration)
     {
-        double bill = (double)(rate * duration);
+        double bill = (double)(_rate * duration);
 
         return bill;
     }
@@ -23,28 +25,34 @@ public class Vehicle
         return _availability;
     }
 
-    public void SetVehicleName()
+    public void SetAvailability(string availability)
     {
-        Console.Write("Enter vehicle name: ");
-        _vehicleName = Console.ReadLine();
+        _availability = bool.Parse(availability);
     }
 
-    public void SetVehicleModel()
+    public void SetVehicleName(string vehicleName)
     {
-        Console.Write("What is the vehicle model: ");
-        _vehicleModel = Console.ReadLine();
+        _vehicleName = vehicleName;
     }
 
-    public void SetRegistrationNumber()
+    public void SetVehicleModel(string vehicleModel)
     {
-        Console.Write("Enter vehicle registration number: ");
-        _registrationNumber = Console.ReadLine();
+        _vehicleModel = vehicleModel;
     }
 
-    public void SetVehicleCategory()
+    public void SetRegistrationNumber(string registrationNumber)
     {
-        Console.Write("What category does the vehicle belong to: ");
-        _vehicleCategory = Console.ReadLine();
+        _registrationNumber = registrationNumber;
+    }
+
+    public void SetVehicleCategory(string vehicleCategory)
+    {
+        _vehicleCategory = vehicleCategory;
+    }
+
+    public void setRate(string rate)
+    {
+        _rate = double.Parse(rate);
     }
 
     public string GetVehicleName()
@@ -65,5 +73,15 @@ public class Vehicle
     public string GetVehicleCategory()
     {
         return _vehicleCategory;
+    }
+
+    public double GetRate()
+    {
+        return _rate;
+    }
+
+    public virtual string Save()
+    {
+        return ($"{GetVehicleCategory()}>{GetVehicleName()}>{GetVehicleModel()}>{GetRegistrationNumber()}>{Available()}>{GetRate()}");
     }
 }

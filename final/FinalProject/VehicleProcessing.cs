@@ -65,9 +65,17 @@ public class VehicleProcessing
         {
             Console.Write($"{counter}. {vehicle.GetVehicleCategory()}: {vehicle.GetVehicleName()} {vehicle.GetVehicleModel()} - {vehicle.GetRegistrationNumber()}: ");
                 if (vehicle.Available())
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Available");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
                 else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Unavailable");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
 
                 counter++;
         }
@@ -114,5 +122,19 @@ public class VehicleProcessing
 
         Console.WriteLine($"{_addNewVehicle.GetVehicle().GetVehicleCategory()} vehicle: {_addNewVehicle.GetVehicle().GetVehicleName()} {_addNewVehicle.GetVehicle().GetVehicleModel()} has been added to the catalogue.");
         Console.WriteLine();
+    }
+
+    public void Tracking()
+    {
+        VehicleTracking vt = new VehicleTracking();
+        vt.ReportMissingVehicle(_catalogue);
+
+        if (vt.IsCleared())
+        {
+            Console.Write("Track Vehicle\n1. Yes\n2.No\n>");
+            int option = int.Parse(Console.ReadLine());
+            if (option == 1)
+                vt.TrackVehicle();
+        }
     }
 }

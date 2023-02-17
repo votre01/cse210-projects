@@ -6,7 +6,7 @@ public class LuxuryVehicle : Vehicle
 
     public LuxuryVehicle()
     {
-        _customFeaturesRate = 80.40;
+        _customFeaturesRate = 80;
     }
 
     public void SetCustomFeaturesRate(string rate)

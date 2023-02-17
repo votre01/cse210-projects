@@ -5,7 +5,7 @@ public class SportsVehicle : Vehicle
     public void SetSportsFeatures()
     {
         bool adding = true;
-        Console.Write("Add sports features. Press 0 when complete: ");
+        Console.WriteLine("Add sports features. Press 0 when complete:");
 
         while (adding)
         {            

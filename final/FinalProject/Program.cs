@@ -38,7 +38,7 @@ class Program
                     vp.AddNewVehicle();
                     break;
                 case 6:
-                    track.TrackVehicle();
+                    vp.Tracking();
                     break;
                 case 7:
                     status = false;

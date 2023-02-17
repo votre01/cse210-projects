@@ -15,7 +15,7 @@ public class BusinessVehicle : Vehicle
 
     public void SetPremium()
     {
-        Console.WriteLine("Is this a Premium Business Vehicle?\n1.Yes\n2. No\n> ");
+        Console.Write("Is this a Premium Business Vehicle?\n1.Yes\n2. No\n> ");
         int premium = int.Parse(Console.ReadLine());
 
         if (premium == 1)

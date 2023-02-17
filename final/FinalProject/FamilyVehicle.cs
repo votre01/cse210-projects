@@ -4,7 +4,7 @@ public class FamilyVehicle : Vehicle
 
     public void SetSittingCapacity()
     {
-        Console.Write("What is the citting capacity of the vehicle: ");
+        Console.Write("What is the maximum sitting capacity of this family vehicle: ");
         _sittingCapacity = int.Parse(Console.ReadLine());
     }
 

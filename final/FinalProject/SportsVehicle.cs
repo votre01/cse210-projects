@@ -5,12 +5,13 @@ public class SportsVehicle : Vehicle
     public void SetSportsFeatures()
     {
         bool adding = true;
+        Console.Write("Add sports features. Press 0 when complete: ");
+
         while (adding)
-        {
-            Console.Write("Add sports feature. Press 0 when complete: ");
+        {            
             string feature = Console.ReadLine();
 
-            if (feature == "0") break;
+            if (feature == "0") adding = false;
             _sportsFeaturesList.Add(feature);
         }
     }

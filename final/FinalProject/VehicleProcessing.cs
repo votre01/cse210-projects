@@ -5,6 +5,7 @@ public class VehicleProcessing
     private int _duration;
     private string _incomingVehicleCondition;
     private VehicleFileProcessing vfp = new VehicleFileProcessing();
+    private NewVehicleEntry _addNewVehicle = new NewVehicleEntry();
 
     public VehicleProcessing()
     {
@@ -103,6 +104,15 @@ public class VehicleProcessing
 
     public void AddNewVehicle()
     {
+        Console.Clear();
+        _addNewVehicle.NewVehicle();
+        _catalogue.Add(_addNewVehicle.GetVehicle());
 
+        WriteToFile("catalogue.csv");
+        _catalogue.Clear();
+        LoadCatalogue();
+
+        Console.WriteLine($"{_addNewVehicle.GetVehicle().GetVehicleCategory()} vehicle: {_addNewVehicle.GetVehicle().GetVehicleName()} {_addNewVehicle.GetVehicle().GetVehicleModel()} has been added to the catalogue.");
+        Console.WriteLine();
     }
 }

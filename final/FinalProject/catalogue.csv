@@ -1,7 +1,7 @@
 Sports>Lamborghini>Aventador>TYU-678>True>250
 Business>Mercedes Benz>S-Class>HJG-231>False>190>False
 Family>Kia>Ceed>KJL-217>True>60>0
-Luxury>Cadillac>Escalade>PLD-823>False>360>804>0
+Luxury>Cadillac>Escalade>PLD-823>False>360>80>0
 Business>Audi>A4>HJS-672>True>190>False
 Family>Volvo>XC40>GHR-234>True>60>0
 Family>BMW>3 Series Touring>VOK-792>False>60>0
@@ -10,12 +10,12 @@ Business>KIA>K5 2023>CVT-609>True>160>False
 Business>Toyota>Prius 2023>OLK-782>False>160>False
 Business>Toyota>Corolla>JMB-271>True>160>False
 Sports>Mazda>MX-5 Miata>LKY-109>True>250
-Sports>Subaru>BRZ>MWV-710>True>250
+Sports>Subaru>BRZ>MWV-710>False>250
 Sports>Chevy>Camaro>JAV-107>True>250
 Economy>Ford>Fiesta>SIL-041>False>35
 Economy>Honda>Civic>YJD-603>True>35
-Luxury>Rolls Royce>Ghost>CVO-128>True>360>80.4>0
-Luxury>Range Rover>Evoque>UGB-691>True>360>80.4>0
+Luxury>Rolls Royce>Ghost>CVO-128>True>360>80>0
+Luxury>Range Rover>Evoque>UGB-691>True>360>80>0
 Truck>Ford>Bronco>OKD-917>True>190
 Truck>Ford>Maverick>KQJ-431>False>190
 Truck>Honda>Ridgeline>KMD-825>True>190
